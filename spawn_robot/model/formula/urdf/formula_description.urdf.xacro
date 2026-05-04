@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="formula"> 
+
+    <xacro:arg name="gpu" default="false"/>
+    <xacro:property name="gpu" value="$(arg gpu)" />
+    <xacro:arg name="organize_cloud" default="false"/>
+    <xacro:property name="organize_cloud" value="$(arg organize_cloud)" />
+
+  <!-- *************** -->
+    <!-- Include -->
+    <!-- *************** -->
+    <xacro:include filename="$(find spawn_robot)/model/formula/urdf/bases/formula_body.urdf.xacro"/>
+    <xacro:include filename="$(find spawn_robot)/model/formula/urdf/wheels/formula_suspension.urdf.xacro"/>
+    <xacro:include filename="$(find spawn_robot)/model/formula/urdf/vehicle_properties.urdf.xacro"/>
+    <xacro:include filename="$(find spawn_robot)/model/formula/urdf/formula.gazebo"/>
+    <!-- <xacro:include filename="$(find spawn_robot)/model/formula/urdf/sensors/camera.urdf.xacro"/>
+    <xacro:include filename="$(find spawn_robot)/model/formula/urdf/sensors/vlp-16.urdf.xacro"/> -->
+    <!-- *************** -->
+    <!-- Robots Elements -->
+    <!-- *************** -->
+    <xacro:formula_base name="formula"/>
+    <xacro:Front_Right_Wheel/>
+    <xacro:Front_Left_Wheel/>
+    <xacro:Rear_Right_Wheel/>
+    <xacro:Rear_Left_Wheel/>
+</robot>
