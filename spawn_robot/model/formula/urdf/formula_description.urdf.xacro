@@ -2,7 +2,7 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="formula"> 
 
-    <xacro:arg name="gpu" default="false"/>
+    <xacro:arg name="gpu" default="true"/>
     <xacro:property name="gpu" value="$(arg gpu)" />
     <xacro:arg name="organize_cloud" default="false"/>
     <xacro:property name="organize_cloud" value="$(arg organize_cloud)" />
@@ -14,8 +14,8 @@
     <xacro:include filename="$(find spawn_robot)/model/formula/urdf/wheels/formula_suspension.urdf.xacro"/>
     <xacro:include filename="$(find spawn_robot)/model/formula/urdf/vehicle_properties.urdf.xacro"/>
     <xacro:include filename="$(find spawn_robot)/model/formula/urdf/formula.gazebo"/>
-    <!-- <xacro:include filename="$(find spawn_robot)/model/formula/urdf/sensors/camera.urdf.xacro"/>
-    <xacro:include filename="$(find spawn_robot)/model/formula/urdf/sensors/vlp-16.urdf.xacro"/> -->
+    <!-- <xacro:include filename="$(find spawn_robot)/model/formula/urdf/sensors/camera.urdf.xacro"/> -->
+    <xacro:include filename="$(find spawn_robot)/model/formula/urdf/sensors/vlp-16.urdf.xacro"/>
     <!-- *************** -->
     <!-- Robots Elements -->
     <!-- *************** -->
@@ -24,4 +24,8 @@
     <xacro:Front_Left_Wheel/>
     <xacro:Rear_Right_Wheel/>
     <xacro:Rear_Left_Wheel/>
+
+    <xacro:VLP-16 parent="chassis" name="velodyne" topic="/velodyne_points" organize_cloud="${organize_cloud}" hz="10" samples="440" gpu="${gpu}">
+      <origin xyz="0 0 ${car_height - 0.23}" rpy="0 0 0" />
+    </xacro:VLP-16>
 </robot>
