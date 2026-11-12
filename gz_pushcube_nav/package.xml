@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>gz_pushcube_nav</name>
+  <version>0.1.0</version>
+  <description>Keyboard teleop, success detection, and HDF5 episode recording for the push-cube task. Gazebo and the UR5e are brought up by spawn_robot.</description>
+  <maintainer email="botong_qu@outlook.com">Botong Qu</maintainer>
+  <license>Apache License 2.0</license>
+
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2_msgs</depend>
+  <exec_depend>spawn_robot</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-h5py</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
